@@ -1,10 +1,11 @@
-<h1>All Users</h1>
-<ul>	
+<h2>All Users</h2>
+<ul id="user-list">	
 	{{#each data}}
-	<li><a href="/users/{{id}}">{{username}}</a><a href="/delete/users/{{id}}">delete</a></li>
+	<li><a href="/users/{{id}}">{{username}}</a><a href="/delete/users/{{id}}"> delete</a></li>
 	{{/each}}
 </ul>
 
+<h2>Add User</h2>
 <form action="/users" method="POST">
 	<input type="text" placeholder="username" name="username">
 	<input type="password" placeholder="password" name="password">

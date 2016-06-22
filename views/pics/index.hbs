@@ -1,7 +1,10 @@
 <h2>All Pics</h2>
 
-<ul>
+<div class="pics-list">
 {{#each pics}}
-	<li>{{title}}</li>
+	<div class="picture">
+		<img src="images/{{src}}" width=200>
+		<p>{{title}}</p>
+	</div>
 {{/each}}
-</ul>
+</div>

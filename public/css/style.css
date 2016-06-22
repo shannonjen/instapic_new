@@ -2,3 +2,24 @@ body {
 	font-family: arial;
 	padding: 40px;
 }
+
+#main-nav {
+	margin: 0;
+	padding: 0;
+
+}
+
+#main-nav li {
+	text-decoration: none;
+	display: inline;
+}
+
+#main-nav a {
+	padding-right: 10px;
+	text-decoration: none;
+	color: black;
+}
+
+#main-nav a:hover {
+	text-decoration: underline;
+}

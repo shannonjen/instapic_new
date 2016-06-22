@@ -1,7 +1,7 @@
 var express = require('express');
 var promise = require('bluebird');
 var path = require('path');
-
+var multer = require('multer');
 
 var app = express();
 
@@ -112,9 +112,9 @@ app.get("/delete/users/:id", function(req, res) {
 
 // create new pic
 
-app.post("/users/:user_id/pics", function(req, res, next){
+app.post("/users/:user_id/pics", multer({ dest: './public/images/'}).single('upl'), function(req, res, next){
 	var title = req.body.title;
-	var src = req.body.src;
+	var src = req.file.filename;
 	var user_id = req.params.user_id;
 	db.none('insert into pics(title,src,user_id) values(${title},${src},${user_id})', { user_id: user_id, 
 			src: src,
