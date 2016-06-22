@@ -1,0 +1,12 @@
+<h1>All Users</h1>
+<ul>	
+	{{#each data}}
+	<li><a href="/users/{{this.id}}">{{this.username}}</a><a href="#">edit</a></li>
+	{{/each}}
+</ul>
+
+<form action="/users" method="POST">
+	<input type="text" placeholder="username" name="username">
+	<input type="password" placeholder="password" name="password">
+	<input type="submit">
+</form>

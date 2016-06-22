@@ -1,0 +1,17 @@
+<h1>{{user.username}}</h1>
+
+
+<h2>Add a pic</h2>
+
+<form action="/users/{{user.id}}/pics" method="post">
+	<input type="text" name="title" placeholder="title">
+	<input type="text"	name="src" placeholder="file name">
+	<input type="submit">
+</form>
+
+<h2>Pics</h2>
+<ul>
+{{#each pics}}
+	<li>{{title}}</li>
+{{/each}}
+</ul>
