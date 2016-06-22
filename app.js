@@ -21,6 +21,8 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(express.static('public'));
+
 app.set('view engine','hbs');
 app.set('views', path.join(__dirname,'views'));
 
@@ -87,7 +89,8 @@ app.put("/users/:id", function(req, res) {
 });
 
 // delete user by id
-app.delete("/users/:id", function(req, res) {
+app.get("/delete/users/:id", function(req, res) {
+	res.send("user deleted: "+ req.params.id);
 });
 
 // create new pic
