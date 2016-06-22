@@ -44,6 +44,23 @@ app.get('/users',function(req,res,next){
 	});
 });
 
+// get all pics
+app.get('/pics', function(req,res,next){
+	db.any('SELECT * FROM pics')
+	.then(function(pics){
+		res.render('pics/index', { pics: pics });
+	})
+	.catch(function(){
+
+	});
+})
+
+
+
+
+
+
+
 // create a new user
 app.post('/users',function(req,res,next){
 	var newUser = req.body;
