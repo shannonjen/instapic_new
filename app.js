@@ -2,6 +2,9 @@ var express = require('express');
 var promise = require('bluebird');
 var path = require('path');
 var multer = require('multer');
+var SpotifyWebApi = require('spotify-web-api-node');
+
+var spotifyApi = new SpotifyWebApi();
 
 var app = express();
 
@@ -72,7 +75,15 @@ app.get('/pics', function(req,res,next){
 
 
 
-
+app.get('/lookup', function(req,res){
+	spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE')
+  .then(function(data) {
+  	console.log(data.body);
+    res.render('artist', { data: data.body });
+  }, function(err) {
+    console.error(err);
+  });
+});
 
 
 

@@ -1,0 +1,7 @@
+<h3>Artist page</h3>
+{{data.name}}
+{{#each data}}
+	<p>{{name}}</p>
+	<audio src="{{preview_url}}"></audio>
+	<img src="{{this.images}}" alt="{{body.name}}">
+{{/each}}
