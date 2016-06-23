@@ -37,7 +37,8 @@ app.post('/login', function(req,res,next){
    		res.render('users/show', {user: user});
 	 })
 	 .catch(function(err){
-	 	return next(err);
+	 	var failMess = "Wrong credentials - try again";
+	 		res.render('index', {failMess: failMess});
 	 });
 });
 // users ROUTES BELOW
