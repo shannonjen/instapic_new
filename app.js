@@ -31,7 +31,15 @@ app.get('/', function(req,res){
 	res.render('index.hbs');
 })
 
-
+app.post('/login', function(req,res,next){
+	db.one('SELECT * FROM users WHERE username = ${username} and password= $(password)', {username: req.body.username, password: req.body.password})
+   .then(function (user) {
+   		res.render('users/show', {user: user});
+	 })
+	 .catch(function(err){
+	 	return next(err);
+	 });
+});
 // users ROUTES BELOW
 
 /*  "/users"

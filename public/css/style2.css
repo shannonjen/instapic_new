@@ -3,6 +3,10 @@ body {
   background-color: #fafafa;
 }
 
+.jumbotron {
+	background-color: orange;
+	color: #fff;
+}
 
 .navbar {
 	margin-bottom: 0;
