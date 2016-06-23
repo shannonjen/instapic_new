@@ -26,6 +26,12 @@ app.use(express.static('public'));
 app.set('view engine','hbs');
 app.set('views', path.join(__dirname,'views'));
 
+
+app.get('/', function(req,res){
+	res.render('index.hbs');
+})
+
+
 // users ROUTES BELOW
 
 /*  "/users"
@@ -37,7 +43,7 @@ app.set('views', path.join(__dirname,'views'));
 app.get('/users',function(req,res,next){
 	db.any('SELECT * FROM users')
 	.then(function(data){
-		res.render('index',{ data: data });
+		res.render('users/index',{ data: data });
 	})
 	.catch(function(err){
 		return next(err);
@@ -89,7 +95,7 @@ app.get('/users/:id', function(req,res,next){
    .then(function (user) {
    		db.any('SELECT * FROM pics WHERE user_id = $1', user.id)
    			.then(function(pics) {
-   				res.render('show', { user: user, pics: pics });
+   				res.render('users/show', { user: user, pics: pics });
    			})
    			.catch(function(err){
    				return next(err);
@@ -106,8 +112,15 @@ app.put("/users/:id", function(req, res) {
 });
 
 // delete user by id
-app.get("/delete/users/:id", function(req, res) {
-	res.send("user deleted: "+ req.params.id);
+app.get("/delete/users/:id", function(req, res, next) {
+	var user_id = req.params.id;
+	db.none('delete from users where id=$1', user_id)
+		.then(function(){
+			res.redirect('/users');
+		})
+		.catch(function(err){
+			return next(err);
+		});
 });
 
 // create new pic

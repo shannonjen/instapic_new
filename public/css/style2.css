@@ -1,0 +1,18 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  background-color: #fafafa;
+}
+
+
+.navbar {
+	margin-bottom: 0;
+	background-color: #fff;
+	/*border: 0;*/
+	/*border-radius: 0;*/
+}
+
+
+.picture {
+	width: 400px;
+	background-color: #fff;
+}
