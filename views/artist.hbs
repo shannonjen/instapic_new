@@ -1,0 +1,11 @@
+<div class="container">
+	<h3>Spotify API example getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE')</h3>
+	{{items.name}}
+	{{#each data.items}}
+		<p>{{name}}</p>
+		<a href="{{href}}"></a>
+		{{#each images}}
+			<img src="{{url}}" >
+		{{/each}}
+	{{/each}}
+</div>

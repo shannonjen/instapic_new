@@ -1,0 +1,37 @@
+
+<div class="container">
+	<h1>Welcome, {{user.username}}!</h1>
+
+
+	<h2>Add a pic</h2>
+
+{{!-- 	<form action="/users/{{user.id}}/pics" method="post" enctype="multipart/form-data">
+		<input type="text" name="title" placeholder="title">
+		<input type="file"	name="upl">
+		<input type="submit">
+	</form> --}}
+
+	<form action="/users/{{user.id}}/pics" method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="inputTitle">Caption</label>
+    <input type="text" id="inputTitle" name="title">
+  </div>
+  <div class="form-group">
+    <label for="inputFile">Pic</label>
+    <input type="file" id="inputFile" name="upl">
+    <p class="help-block">Upload pic</p>
+  </div>
+  <button type="submit" class="btn btn-default">Post Instapic</button>
+</form>
+
+	<h2>Your Pics</h2>
+
+	<div class="pics-list">
+		{{#each pics}}
+			<div class="picture center-block">
+				<img class="img-responsive" src="/images/{{src}}" width="400">
+				<p>{{title}}</p>
+			</div>
+	{{/each}}
+	</div>
+</div>

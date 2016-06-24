@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS instapics;
+-- DROP DATABASE IF EXISTS instapics;
 CREATE DATABASE instapics;
 
 \c instapics;
@@ -11,7 +11,7 @@ CREATE TABLE users (
 
 CREATE TABLE pics (
 	id		serial primary key,
-	user_id	int 		references	users(id),
+	user_id	int 		references	users(id) on delete cascade,
 	title		text,
 	src		text
 );	
