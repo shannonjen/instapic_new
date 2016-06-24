@@ -1,7 +1,11 @@
-<h3>Artist page</h3>
-{{data.name}}
-{{#each data}}
-	<p>{{name}}</p>
-	<audio src="{{preview_url}}"></audio>
-	<img src="{{this.images}}" alt="{{body.name}}">
-{{/each}}
+<div class="container">
+	<h3>Spotify API example getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE')</h3>
+	{{items.name}}
+	{{#each data.items}}
+		<p>{{name}}</p>
+		<a href="{{href}}"></a>
+		{{#each images}}
+			<img src="{{url}}" >
+		{{/each}}
+	{{/each}}
+</div>
