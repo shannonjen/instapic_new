@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS instapics;
+-- DROP DATABASE IF EXISTS instapics;
 CREATE DATABASE instapics;
 
 \c instapics;
