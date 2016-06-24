@@ -1,7 +1,12 @@
-<h2>All Pics</h2>
+<div class="container text-center">
+	<h2>All Pics</h2>
 
-<ul>
-{{#each pics}}
-	<li>{{title}}</li>
-{{/each}}
-</ul>
+	
+	{{#each pics}}
+		<div class="picture center-block">
+			<img class="img-responsive" src="images/{{src}}">
+			<p>{{title}}</p>
+		</div>
+	{{/each}}
+
+</div>
